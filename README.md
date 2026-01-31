@@ -5,6 +5,12 @@ Concept:
 2. Each horse has different odds
 3. User can bet on horse races using real horse racing bet types
 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+NOTICE
+Gambling has been delayed. I'm sorry :(
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 enum name { 0, 1, 2, 3, 4 }
 enum betType { win, place, exacta, quinella, trifecta, hi-5 }
 /**
@@ -18,9 +24,9 @@ enum betType { win, place, exacta, quinella, trifecta, hi-5 }
 
 Struct horse {
   name horseName
-  float* payout {1st, 2nd, 3rd}
-  float baseOdds
-  float seededOdds
+  float odds
+  char path[15]
+  int location
 }
 
 struct bet {
@@ -34,10 +40,46 @@ struct user {
   bet userBet
 }
 
-void clearBet(bet*) {
-  sets bet to blank state
+void printHorse(Horse* horse) {
+  15 char line
+}
+
+void horseTurn(Horse* horse) {
+  rng 1 - 100
+    under odds
+      heads
+      update position
+    over odds
+      tails
+  printHorse()
+}
+
+void horseRace(Horse* horseArray[5]) {
+  Set/reset horses
+  orderArray[5] to keep finishing order
+  
+  printHorse(all)
+
+  while(not all horses have finished) {
+    for (every horse) {
+      horseTurn(horse)
+      if horse finishes {
+        store in orderArray[finishing place]
+      }
+      printHorse
+    }
+    0.25s pause
+  }
+  Print place, horse, and turns x5
 }
 
 int main() {
-  createGame();
+  create horses
+  create horseArray
+  while (user say yes) {
+    horseTurn
+    if (turn over 100) {
+      end program
+    }
+  }
 }
